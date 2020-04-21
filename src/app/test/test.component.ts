@@ -111,23 +111,33 @@ export class TestComponent implements OnInit {
   }
 
   onDone($event) {
+    console.log($event)
+    
+    if ($event.toState === "timerStart"){
+      console.log('sdsd')
+      this.state = "timerStop"
+    }
 
+    if($event.fromState === "void")
+      this.state = "timerStop"
     //if ($event.fromState === "timerStart")
     //  this.state = "answerWrong"
 
     if ($event.toState === "timerStop" && $event.phaseName === "done")
       this.checkQuestion();
 
-    if ($event.toState === "answerWrong")
-      setTimeout(() => { this.askQuestion() }, 2000);
+    if ($event.toState === "answerWrong"){
+
+    }
+      //setTimeout(() => { this.askQuestion() }, 2000);
 
     //if ($event.toState === "timerStart")
     //  setTimeout(() => { this.askQuestion() }, 2000);
 
-    if ($event.toState === "timerStart")
-      this.state = "timerStop"
+    
+      
 
-    console.log($event)
+    
   }
 
   start() {
