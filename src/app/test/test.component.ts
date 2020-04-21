@@ -13,7 +13,7 @@ import { trigger, state, style, transition, animate, query, animateChild, group,
 
       state('timerStart', style({
         backgroundColor: '#90a4ae',
-        height: '300px',
+        height: '100%',
         marginTop: '0px',
         opacity: 1
 
@@ -25,19 +25,19 @@ import { trigger, state, style, transition, animate, query, animateChild, group,
           //transform: 'scaleY(0.1)',
           //transform: 'scaleY(-1)',
           height: '0px',
-          marginTop: '300px',
+          marginBottom: '0%',
           opacity: 0.1
         })),
       state('answerCorrect', style({
         backgroundColor: '#5dbb46',
-        height: '300px',
+        height: '100%',
         marginTop: '0px',
         opacity: 1
 
       })),
       state('answerWrong', style({
         backgroundColor: '#e63946',
-        height: '300px',
+        height: '100%',
         marginTop: '0px',
         opacity: 1
 
@@ -48,7 +48,7 @@ import { trigger, state, style, transition, animate, query, animateChild, group,
         animate('5000ms')
       ]),
       //transition('timerStop => wrongAnswer',animate('5000ms')),
-      transition('* => timerStart', animate('500ms')),
+      transition('* => timerStart', animate('200ms')),
       transition('* => answerWrong', animate('100ms')),
       transition('* => answerCorrect', animate('100ms')),
       //transition('* => answerCorrect',animate('200ms'))
@@ -66,6 +66,7 @@ export class TestComponent implements OnInit {
   correctAnswerCounter: number;
   questionLanguage: string = "pl";
   answerLanguage: string = "en";
+  showAnswer:boolean = false;
 
   constructor() {
     this.askQuestion();
@@ -77,6 +78,7 @@ export class TestComponent implements OnInit {
   }
 
   askQuestion() {
+    this.showAnswer = false;
     this.state = "timerStart"
     this.userWord = "";
 
@@ -92,13 +94,13 @@ export class TestComponent implements OnInit {
     // console.log("userWord " + this.userWord.toLowerCase());
     // console.log("correct " + this.correctAnswer);
     if (this.userWord.toLowerCase() === this.correctAnswer) {
-      console.log("dobrze");
+      
       setTimeout(() => { this.askQuestion(); }, 500);
       this.state = 'answerCorrect';
     }
     else {
-      console.log("prawidlowa odpowiedz: " + this.correctAnswer);
-      setTimeout(() => { this.askQuestion(); }, 500);
+      this.showAnswer = true;
+      setTimeout(() => { this.askQuestion(); }, 1500);
       this.state = 'answerWrong';
     }
   }
