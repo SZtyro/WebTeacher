@@ -1,0 +1,17 @@
+.content {
+    width: 600px;
+    height: 300px;
+    border: none ;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    
+}
+
+.container{
+    width: 800px;
+    height: 300px;
+    margin: auto;
+}

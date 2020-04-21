@@ -1,0 +1,15 @@
+<div class="container">
+    <div [@color]='state'(@color.done)="onDone($event)" style="width: 600px; height:300px;margin-left: 100px;z-index: -1; position: absolute; border-radius: 10px;">
+
+    </div>
+    <div class="content">
+    
+        <h1 style="margin: auto;">{{questionWord}}</h1>
+        <input style="width: 80%;margin: auto; background-color: #cfd8dc; border: none; border-radius: 15px; height: 40px;"
+            (keydown)="isEnter($event)" [(ngModel)]="userWord">
+    
+    </div>
+</div>
+
+<button (click)="start()"> Start</button>
+<button (click)="stop()"> Stop</button>

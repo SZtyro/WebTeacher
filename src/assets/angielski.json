@@ -1,0 +1,20 @@
+{
+    "languages": [
+        "en",
+        "pl"
+    ],
+    "vocabulary" : [
+        {
+            "en": "appreciate",
+            "pl" : "doceniać"
+        },
+        {
+            "en":"efforts",
+            "pl":"starania"
+        },
+        {
+            "en":"tannery",
+            "pl":"garbarnia"
+        }
+    ]
+}
